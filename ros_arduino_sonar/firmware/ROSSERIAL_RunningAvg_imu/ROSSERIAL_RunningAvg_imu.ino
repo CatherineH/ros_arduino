@@ -52,16 +52,12 @@ MPU6050 accelgyro;
 
 //ROS serial node for publishing imu data
 ros::NodeHandle  nh;
-sensor_msgs::Range sensor1_msg;
-sensor_msgs::Range sensor2_msg;
-sensor_msgs::Range sensor3_msg;
-sensor_msgs::Range sensor4_msg;
-sensor_msgs::Range sensor5_msg;
-sensor_msgs::Range sensor6_msg;
-sensor_msgs::Range sensor7_msg;
-sensor_msgs::Range sensor8_msg;
+sensor_msgs::Range sensor_msg_s[8];
 sensor_msgs::Range threshold_msg;
 
+ros::Publisher sensor_pub;
+
+sensor_pub = sensor_msg_s("sonar1", &sensor_msg_s[0]);
 ros::Publisher sensor1_pub("sonar1", &sensor1_msg);
 ros::Publisher sensor2_pub("sonar2", &sensor2_msg);
 ros::Publisher sensor3_pub("sonar3", &sensor3_msg);
